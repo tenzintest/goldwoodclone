@@ -153,6 +153,22 @@ function Header() {
           </div>
         </div>
 
+
+        <div className='twoPic'>
+          <div className='twl'>
+            <div className='img'>
+
+            </div>
+            <span>SELECTED BY BORIS</span>
+            <p>Under the vision of Boris, the house reformulated its approach on Mid Century Design. A market that felt saturated with the uninspiring dull that was created for the many soon became the pinnacle for the few, the eclectic and the mad. Representing the thrive of craftsmanship and design with a most personal selection of
+               fascinating and intriguing pieces.</p>
+            <a href="">Shop full collection</a>
+          </div>
+          <div className='twl'>
+            
+            </div>
+        </div>
+
  
         {/* <div className="header-top">
           <Link to="/">
@@ -320,6 +336,21 @@ const HeaderContainer = styled.header`
     width: 90%;
     height: 0;
     margin-top: 80px;
+  }
+
+  .twoPic {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .twl {
+    flex: 50%;
+    position: relative;
+    left: 30px;
+    bottom: 10px;
+    color: #333;
   }
 
   // Header Top
