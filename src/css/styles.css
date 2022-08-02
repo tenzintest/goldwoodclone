@@ -1,0 +1,11 @@
+.sectionBody {
+    display: 'flex';
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10;
+    border-top: 5px solid #333;
+    border-bottom: '5px solid #333';
+    position: 'relative';
+    top: -80;
+    padding: 30 0 80 0;
+}
