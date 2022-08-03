@@ -1,14 +1,13 @@
 import React, { Component, useState } from 'react'
 import logo from '../svg/logo.svg'
 import { NavLink, Link } from 'react-router-dom'
-import {Button} from './Button'
 import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 import Icon from 'react-icons-kit';
 import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_right';
 import { Fade as Hamburger } from 'hamburger-react'
 import { FaSearch } from "react-icons/fa";
-import { BiUser, BiShoppingBag, BiLock } from "react-icons/bi";
+import { BiUser, BiShoppingBag, BiLock, BiNoEntry } from "react-icons/bi";
 import { useSpring, animated } from "react-spring";
 import Carousel from 'react-bootstrap/Carousel';
 import img0 from '../images/goldwood1.jpg';
@@ -25,6 +24,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 function Header() {
     const [isOpen, setOpen] = useState(false);
@@ -273,7 +273,8 @@ function Header() {
                   fontSize: 30, 
                   textTransform: 'uppercase',
                   color: "#e61c24",
-                  marginLeft: 10}}>  BY BORIS</div>
+                  marginLeft: 10}}> 
+                  BY BORIS</div>
                 <div className='columns'>
                   <div className='cp'>
                     <p style={{textAlign: "start",
@@ -296,8 +297,6 @@ function Header() {
                     }}
                 >
               </div>
-            
-
               <Container>
               <Row>
                 <Col md={{ span: 6, offset: 3 }}>
@@ -326,8 +325,10 @@ function Header() {
                 <div className='lines6'></div>
               </Col>
               <Col xs={4} md={4}>
-                <Card style={{ width: '38rem', 
-                    height: '25rem', position: 'relative', 
+                <Card style={{ 
+                    width: '38rem', 
+                    height: '25rem', 
+                    position: 'relative', 
                     left: 30, marginTop: 20,
                     background: `url(${img6})`,
                     backgroundPosition: 'center',
@@ -383,14 +384,19 @@ function Header() {
                 className='lines7'
                 style={{
                     position: 'relative',
-                    bottom: 100,
+                    bottom: '5%',
                     marginLeft: 50, 
                     marginRight: 100,
                     }}
                 >
               </div>
 
-          
+          <div style={{
+            position: 'relative',
+            bottom: '4%',
+            marginRight: 30,
+            marginLeft: 50,
+          }}>
             <Row>
               <Col>
                 <div
@@ -398,10 +404,10 @@ function Header() {
                         textTransform: "uppercase", 
                         color: "#e61c24",
                         fontSize: 16,
-                        fontWeight: 500,
+                        fontWeight: 700,
                         display: "inline"
                     }}
-                  >SELECTED 
+                  > My general
                   </div>
               </Col>
               <Col xs={5}>
@@ -410,7 +416,7 @@ function Header() {
                         textTransform: "uppercase", 
                         color: "#e61c24",
                         fontSize: 16,
-                        fontWeight: 500,
+                        fontWeight: 700,
                         display: "inline"
                     }}
                   >
@@ -423,7 +429,7 @@ function Header() {
                         textTransform: "uppercase", 
                         color: "#e61c24",
                         fontSize: 16,
-                        fontWeight: 500,
+                        fontWeight: 700,
                         display: "inline"
                     }}
                   >
@@ -436,22 +442,89 @@ function Header() {
                         textTransform: "uppercase", 
                         color: "#e61c24",
                         fontSize: 16,
-                        fontWeight: 500,
+                        fontWeight: 700,
                         display: "inline"
                     }}
                   >
                     FOLLOW US
                   </div>
               </Col>
+
             </Row>
+            </div>   
 
+            <div style={{
+                marginLeft: 15,
+                position: 'relative',
+                bottom: '4%',
+            }}>
+            <Row>
+            <Col xs={3}>
+                    <ul style={{
+                      marginTop: 15,
+                      listStyleType: "none"
+                    }}>
+                      <li style={{color: "black"}}>
+                          <a href="">Payment</a>
+                      </li>
+                      <li style={{color: "black"}}>
+                        <a href="">
+                          Shipping
+                        </a>
+                      </li>
+                      <li style={{color: "black"}}>
+                        <a href="">
+                          Privacy & Policy
+                        </a>
+                        </li>
+                    </ul>
+              </Col>
+              
+              <Col xs={5}>
+                <Button style={{
+                  color: "#e61c24",
+                  background: "none",
+                  borderRadius: 30,
+                  borderColor: "#e61c24",
+                  paddingLeft: 25,
+                  paddingRight: 25,
+                  position: 'relative',
+                  left: '65%'
+                }}>SUBSCRIBE</Button>
+                <div className='lines16'></div>
+              </Col>
 
-        
+              <Col>
+              <div style={{
+                position: 'relative',
+                right: 35
+              }}>
+              <ul style={{
+                      marginTop: 15,
+                      listStyleType: "none"
+                    }}>
+                      <li style={{color: "black"}}>
+                          <a href="">+32 493 79 42 23</a>
+                      </li>
+                      <li style={{color: "black"}}>
+                        <a href="">
+                          Send us an email
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+              </Col>
 
-            
-
-        
-        
+              <Col>
+                  <p style={{
+                    color: "black",
+                    marginTop: 10,
+                    position: 'relative',
+                    left: '45%'
+                    }}>Instragram</p>
+              </Col>
+            </Row>
+        </div>
         {/* <div className="header-top">
           <Link to="/">
             <Logo className="logo" src={logo} />
@@ -643,6 +716,13 @@ const HeaderContainer = styled.header`
     width: 90%;
     height: 0;
     margin-top: 80px;
+  }
+
+  .lines16 {
+    border: 1px solid #ECECEC;
+    width: 80%;
+    height: 0;
+    margin-top: 10px;
   }
 
   .lines7 {

@@ -2,8 +2,8 @@
 
 :root {
     --main-red: rgba(229, 9, 20);
-    --main-dark: rgba(20, 20, 20);
-    --main-deep-dark: rgba(0, 0, 0);
+    /* --main-dark: rgba(20, 20, 20);
+    --main-deep-dark: rgba(0, 0, 0); */
     --main-grey: rgba(153, 153, 153);
 }
 
