@@ -10,9 +10,7 @@ class Main extends Component {
         return (
             <div>
              <Header />
-                <Section/>
-                <TabComponent />
-             <Footer/>
+             {/* <Footer/> */}
             </div>
         )
     }
