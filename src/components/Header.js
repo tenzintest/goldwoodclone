@@ -25,6 +25,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Radium, { StyleRoot } from 'radium';
 
 function Header() {
     const [isOpen, setOpen] = useState(false);
@@ -42,34 +43,49 @@ function Header() {
       }
     });
 
+    const animatestyle = {
+      color: "#e61c24", 
+      fontWeight: 300,
+      textTransform: 'uppercase',
+      fontSize: 55,
+      marginTop: 15,
+      marginBottom: 15,
+   
+    // Adding media query..
+    '@media (max-width: 600px)': {
+      color: "#e61c24", 
+      fontSize: 30,
+      fontWeight: 300,
+      marginTop: 5,
+      marginBottom: 5,
+    },
+  };
+
 
     return (
       <HeaderContainer className="header-container">
        <div className="columns">
-          <div className="column1" style={{ flex: "25%"}}>
+          <div className="column1">
             <h3 style={{
               fontSize: 25,
               color: "#e61c24",
               marginBottom: 30,
               fontWeight: 200}}>GOLDWOOD</h3>
           </div>
-          <div className="column2" style={{   position: 'relative',
-              left: 210, bottom: 10}}>
-          <Hamburger 
-            size={22}
-            color="#e61c24"
-            toggled={isOpen} toggle={setOpen} 
-            />
+          <div className="column2">
+              <Hamburger 
+                size={22}
+                color="#e61c24"
+                toggled={isOpen} toggle={setOpen} 
+                />
           </div>
           <div className="column3">
-          <h3 style={{fontSize: 25,color: "#e61c24",
-        fontWeight: 200, textTransform: 'uppercase'}}>Shop</h3>
+          <h3  className="colum3title"
+            style={{fontSize: 25,color: "#e61c24",
+          fontWeight: 200, textTransform: 'uppercase'}}>Shop</h3>
 
           </div>
-          <div className="column4"
-          style={{position: 'relative',
-          bottom: 2,
-          left: 90}}>
+          <div className="column4">
             <div className='filterStyle'
             style={{position: 'relative',
             right: 30, top: 5}}>
@@ -83,7 +99,9 @@ function Header() {
             textTransform: 'uppercase'}}>filter</span>
             </div>
 
-            <FaSearch size={15} style={{
+            <FaSearch size={15}
+             className="fasearchicon" 
+             style={{
               position: "relative",
               color: "black",
               bottom: 12,
@@ -123,20 +141,15 @@ function Header() {
           </div>
         </div>
 
-
-        <div key={key}>
-            <animated.div style={scrolling}>
-                <h2 style={{
-                    color: "#e61c24", 
-                    fontWeight: 300,
-                    textTransform: 'uppercase',
-                    fontSize: 55,
-                    marginTop: 15,
-                    marginBottom: 15}}>
-                SELECTOR OF FURNITURE AND FINE GOODS
-                </h2>
-              </animated.div>;
-        </div>
+          <div key={key}>
+              <animated.div style={scrolling}>
+                  <h2
+                  style={animatestyle}
+                      >
+                  SELECTOR OF FURNITURE AND FINE GOODS
+                  </h2>
+                </animated.div>;
+          </div>
 
 
         <div className='twoLine'>
@@ -145,18 +158,20 @@ function Header() {
           </div>
         </div>
 
-        <h2 style={{
-          marginTop: 60,
-          letterSpacing: 1,
-          fontSize: 60,
-          fontWeight: 550,
-          textAlign: 'center',
-          color: "#e61c24"
-        }}>
-          GOLDWOOD BY BORIS
-        
-        </h2>
-       
+        <Container>
+          <h2 style={{
+            marginTop: 60,
+            letterSpacing: 1,
+            fontSize: 70,
+            fontWeight: 500,
+            textAlign: 'center',
+            color: "#e61c24"
+          }}>
+            GOLDWOOD BY BORIS
+          
+          </h2>
+        </Container>
+
         <div className='twoLine2'>
           <div className='lines2'>
           <div className='lines6'></div>
@@ -548,7 +563,7 @@ function Header() {
     );
 }
 
-export default Header;
+export default Radium(Header);
 
 // Media
 const customMedia = generateMedia({
@@ -571,6 +586,9 @@ const Logo = styled.img`
     left: 20%;
   `}
 `;
+
+
+
 
 const HeaderContainer = styled.header`
 
@@ -623,24 +641,49 @@ const HeaderContainer = styled.header`
   }
 
   .column2 {
+    position: relative;
+    left: 210;
+    bottom: 10;
     padding: 10px 10px 0 40px;
     flex: 25%;
     margin-top: 10px;
+    ${customMedia.lessThan('smTablet')`
+      position: relative;
+      left: 250px;
+  `}
   }
 
-  
-  .column3 {
+.column3 {
     padding: 10px 10px 0 40px;
     flex: 25%;
     margin-top: 10px;
+    ${customMedia.lessThan('smTablet')`
+      position: relative;
+      right: 400px;
+      top: 60px;
+  `}
+  }
+  
+.column4 {
+    padding: 10px 10px 0 40px;
+    flex: 25%;
+    margin-top: 10px;
+    position: relative;
+    bottom: 2px;
+    left: 90px;
+    ${customMedia.lessThan('smTablet')`
+      left: 400px;
+      bottom: 15px;
+    `}
+
+    .fasearchicon {
+      ${customMedia.lessThan('smTablet')`
+       font-size: 30px;
+    `}
+    }
   }
 
-  
-  .column4 {
-    padding: 10px 10px 0 40px;
-    flex: 25%;
-    margin-top: 10px;
-  }
+ 
 
   .cp {
     flex: 50%;
@@ -666,6 +709,9 @@ const HeaderContainer = styled.header`
     position: relative;
     left: 30px;
     bottom: 10px;
+    ${customMedia.lessThan('smTablet')`
+       top: 30px;
+ `}
   }
 
   .line2 {
