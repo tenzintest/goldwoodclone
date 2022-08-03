@@ -56,10 +56,68 @@ function Header() {
       color: "#e61c24", 
       fontSize: 30,
       fontWeight: 300,
-      marginTop: 5,
-      marginBottom: 5,
     },
   };
+
+
+  const filterStyles = {
+    position: 'relative',
+    right: 30, 
+    top: 5,
+
+    '@media (max-width: 600px)': {
+      right: 80
+    },
+  }
+
+
+  const filterspan = {
+    color: "black",
+    fontSize: 9,
+    position: 'relative',
+    left: 9,
+    bottom: 5,
+    letterSpacing: 1,
+    color: "#e61c24",
+    textTransform: 'uppercase',
+
+    '@media (max-width: 600px)': {
+      fontSize: 11,
+      bottom: 2,
+      left: 20
+    },
+  }
+
+
+  const fasearchicon = {
+    position: "relative",
+    bottom: 18,
+    left: 50,
+    color: "#e61c24",
+    fontWeight: 100,
+
+    '@media (max-width: 600px)': {
+      left: 40
+    },
+  }
+
+  const fasearchUser = {
+    position: "relative",
+    color: "black",
+    bottom: 18,
+    left: 60,
+    color: "#e61c24",
+    fontWeight: 100
+  }
+
+  const fasearchBag = {
+    position: "relative",
+    color: "black",
+    bottom: 18,
+    left: 72,
+    color: "#e61c24",
+    fontWeight: 100
+  }
 
 
     return (
@@ -81,52 +139,31 @@ function Header() {
           </div>
           <div className="column3">
           <h3  className="colum3title"
-            style={{fontSize: 25,color: "#e61c24",
-          fontWeight: 200, textTransform: 'uppercase'}}>Shop</h3>
+            style={{
+              fontSize: 25,
+              color: "#e61c24",
+              fontWeight: 200, 
+              textTransform: 'uppercase'}}>Shop</h3>
 
           </div>
           <div className="column4">
             <div className='filterStyle'
-            style={{position: 'relative',
-            right: 30, top: 5}}>
-              <span style={{color: "black",
-            fontSize: 9,
-            position: 'relative',
-            left: 9,
-            bottom: 5,
-            letterSpacing: 1,
-            color: "#e61c24",
-            textTransform: 'uppercase'}}>filter</span>
+            style={filterStyles}>
+                <span 
+                style={filterspan}>
+                    filter
+                  </span>
             </div>
 
-            <FaSearch size={15}
-             className="fasearchicon" 
-             style={{
-              position: "relative",
-              color: "black",
-              bottom: 12,
-              left: 45,
-              color: "#e61c24",
-              fontWeight: 100}} />
+            <FaSearch size={25}
+             style={fasearchicon} />
 
-            <BiUser size={18}
-              style={{
-                position: "relative",
-                color: "black",
-                bottom: 12,
-                left: 58,
-                color: "#e61c24",
-                fontWeight: 100}} />
+            <BiUser size={25}
+              style={fasearchUser} />
 
             <BiShoppingBag
-              size={18}
-              style={{
-                position: "relative",
-                color: "black",
-                bottom: 12,
-                left: 72,
-                color: "#e61c24",
-                fontWeight: 100}} />
+              size={25}
+              style={fasearchBag} />
 
           </div>
         </div>
@@ -168,7 +205,6 @@ function Header() {
             color: "#e61c24"
           }}>
             GOLDWOOD BY BORIS
-          
           </h2>
         </Container>
 
@@ -659,8 +695,8 @@ const HeaderContainer = styled.header`
     margin-top: 10px;
     ${customMedia.lessThan('smTablet')`
       position: relative;
-      right: 400px;
       top: 60px;
+      right: 380px;
   `}
   }
   
@@ -672,15 +708,9 @@ const HeaderContainer = styled.header`
     bottom: 2px;
     left: 90px;
     ${customMedia.lessThan('smTablet')`
-      left: 400px;
-      bottom: 15px;
+      left: 350px;
+      bottom: 10px;
     `}
-
-    .fasearchicon {
-      ${customMedia.lessThan('smTablet')`
-       font-size: 30px;
-    `}
-    }
   }
 
  
@@ -692,8 +722,16 @@ const HeaderContainer = styled.header`
   .filterStyle {
     border: 2px solid #e61c24;
     border-radius: 20px;
-    width: 60px;
-    height: 15px;
+    position: relative;
+    width: 70px;
+    height: 25px;
+    right: 60px;
+    ${customMedia.lessThan('smTablet')`
+      position: relative;
+      right: 60px;
+      width: 80px;
+      height: 25px;
+ `}
   }
 
   .twoLine {
@@ -710,7 +748,7 @@ const HeaderContainer = styled.header`
     left: 30px;
     bottom: 10px;
     ${customMedia.lessThan('smTablet')`
-       top: 30px;
+      bottom: 100px;
  `}
   }
 
@@ -731,6 +769,10 @@ const HeaderContainer = styled.header`
     border: 1.5px solid red;
     width: 100%;
     height: 0.5px; 
+
+    ${customMedia.lessThan('smTablet')`
+      border: 1.5px solid #ECECEC; 
+`}
   }
 
   .lines9 {
